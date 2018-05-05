@@ -1,21 +1,38 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
+import Vue from "vue";
+import Router from "vue-router";
+import CCP from "./views/CCP.vue";
+import ATIII from "./views/ATIII.vue";
+import Pronativ from "./views/Pronativ.vue";
+import NotFound from "./views/404.vue";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
+  mode: "history",
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: "/",
+      redirect: "/ccp",
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path:  "/ccp",
+      name: "ccp",
+      component: CCP
+    },
+    {
+      path: "/atiii",
+      name: "atii",
+      component: ATIII
+    },
+    {
+      path: "/pronativ",
+      name: "pronativ",
+      component: Pronativ
+    },
+    {
+      path: "*",
+      name: "404",
+      component: NotFound
     }
   ]
-})
+});
